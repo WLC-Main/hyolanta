@@ -6,13 +6,12 @@ module.exports = {
       const uye = new uyesema({
           uid: message.author.id,
           unvan: 'Beater',
-          stat: "0"
+          stat: "0",
+          alink: "https://media.discordapp.net/attachments/755114934886727763/766347294806900736/866e4fc191237bd66d5526c64eea9799.png"
       })
-
+uye.save()
 uyesema.findOne({uid: message.author.id}).exec((error, data) => {
-
-    if (error) {throw error}
-
+if(error) {throw error}
 
     const embed = {
         "footer": {

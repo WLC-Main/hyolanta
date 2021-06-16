@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@canvacord/beta": "^6.0.0-dev-3",
+    "canvas": "^2.8.0",
     "discord-buttons": "^3.2.1",
     "discord.js": "^12.5.3",
     "fs": "0.0.1-security",

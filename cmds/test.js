@@ -1,5 +1,5 @@
 module.exports = {
-    name:"dene",
+    name:"buton",
     execute(message,args ) {
         const { MessageButton, MessageActionRow } = require('discord-buttons');
         const Discord = require('discord.js');
@@ -7,12 +7,9 @@ module.exports = {
         let button = new MessageButton()
             .setStyle('red')
             .setLabel('GOTTEN BAS!')
-            .setID('click_to_function')
+            .setID('basgote')
 
         message.channel.send('aaaaaaaa', button)
-        client.on('clickButton', async (button) => {
-            //... my code
-            await button.reply.send('My message');
-        });
+
     }
 }

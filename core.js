@@ -11,9 +11,7 @@ const fs = require('fs');
 
 client.commands = new Discord.Collection();
 const uyesema = require('./models/uye')
-client.once('ready', () => {
-    console.log('Ready!');
-});
+
 
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -26,7 +24,7 @@ client.on('message', message => {
         client.commands.get(command).execute(message, args);
     } catch (error) {
         console.error(error);
-        message.reply('there was an error trying to execute that command!');
+        message.reply('Hata var!');
     }
 
 });
@@ -35,9 +33,30 @@ client.on('message', message => {
 const commandFiles = fs.readdirSync('./cmds').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
     const command = require(`./cmds/${file}`);
-
+    console.log(command.name + " çalışıyor")
     client.commands.set(command.name, command);
 }
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+for (const file of eventFiles) {
+    const event = require(`./events/${file}`);
+    if (event.once) {
+        client.once(event.name, (...args) => event.execute(...args));
+    } else {
+        client.on(event.name, (...args) => event.execute(...args));
+    }
+}
+
+
+
+client.on('clickButton', async (button) => {
+    console.log(button.channel, 'kanalında butona basıldı!')
+
+    switch(button.id){
+        case 'basgote': button.reply.send("<@"+ button.clicker.member +">" + "'a götten basıldı!")
+        break;
+    }
+
+});
 
 
 client.login(token);
