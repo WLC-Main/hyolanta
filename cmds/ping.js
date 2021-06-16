@@ -9,8 +9,9 @@ module.exports = {
           stat: "0"
       })
 
-uyesema.findOne({uid: message.author.id}).exec((err, data) => {
+uyesema.findOne({uid: message.author.id}).exec((error, data) => {
 
+    if (error) {throw error}
 
 
     const embed = {
