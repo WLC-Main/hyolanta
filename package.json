@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node core.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@canvacord/beta": "^6.0.0-dev-3",
+    "canvacord": "^5.2.1",
     "canvas": "^2.8.0",
     "discord-buttons": "^3.2.1",
     "discord.js": "^12.5.3",

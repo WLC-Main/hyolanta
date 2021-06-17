@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const prefix = "h!"
-const token = require('./conf.json').token
+const token = process.env.token
 const client = new Discord.Client();
 require('discord-buttons')(client);
 const fs = require('fs');

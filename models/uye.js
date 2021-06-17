@@ -1,6 +1,6 @@
 const mongosee = require('mongoose')
 const conf = require('../conf.json')
-const uri = conf.uri;
+const uri = process.env.uri;
 mongosee.connect(uri,  { useUnifiedTopology: true, useNewUrlParser: true  } )
 
 const sema = mongosee.Schema
@@ -8,19 +8,21 @@ const sema = mongosee.Schema
 const uye = new sema({
    uid: String,
    klan: String,
-   para: String,
+   para: Number,
    unvan: String,
    work: String,
    ulke: String,
     mulk: String,
     alink: String,
-    monnsterkills: String,
-    arenaticket: String,
-    can: String,
+    monnsterkills: Number,
+    arenaticket: Number,
+    can: Number,
     atk: Number,
     din: String,
-    gsayı: String
+    gsayı: String,
+    premium: Number,
+    durum: Number
     })
 
-const Uye = mongosee.model('oyuncu', uye)
+const Uye = mongosee.model('profil', uye)
 module.exports = Uye

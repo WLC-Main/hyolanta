@@ -3,15 +3,19 @@ module.exports = {
     execute(message, args, client) {
         const fs = require('fs');
         const commandFiles = fs.readdirSync('./cmds').filter(file => file.endsWith('.js'));
-        var arr = [];
-
+        var emptystr = "";
+        var nextline = "\n";
+        var endstr = ""
         for (const file of commandFiles) {
             const command = require(`../cmds/${file}`);
-           message.author.send(command.name)
+            emptystr = emptystr + command.name;
+            emptystr = emptystr + nextline;
+            var res = emptystr.slice(0, -1)
         }
 
+        message.author.send(res )
 
 
-}
+    }
 
 }
